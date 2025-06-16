@@ -1,13 +1,16 @@
 import React from 'react';
+import ApodViewer from './components/ApodViewer';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="container mt-4">
-      <h1>🚀 Space Today</h1>
-      <p>Loading NASA data soon...</p>
-    </div>
+    <>
+      <Header />
+      <div className="container mt-4">
+        <ApodViewer />
+      </div>
+    </>
   );
 }
 
 export default App;
-
