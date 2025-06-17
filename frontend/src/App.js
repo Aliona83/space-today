@@ -1,15 +1,20 @@
 import React from 'react';
-import ApodViewer from './components/ApodViewer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import ApodViewer from './components/ApodViewer';
+import AsteroidTable from './components/AsteroidTable'; 
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
       <div className="container mt-4">
-        <ApodViewer />
+        <Routes>
+          <Route path="/" element={<ApodViewer />} />
+          <Route path="/asteroids" element={<AsteroidTable />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 

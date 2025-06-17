@@ -1,5 +1,4 @@
-import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Container, Nav } from 'react-bootstrap';
 
 const Header = () => {
   return (
@@ -13,7 +12,7 @@ const Header = () => {
             <Nav.Link href="/" className="nav-link-custom">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#asteroids" className="nav-link-custom">Asteroids</Nav.Link>
+            <Nav.Link href="/asteroids" className="nav-link-custom">Asteroids</Nav.Link>
           </Nav.Item>
         </Nav>
       </Container>
