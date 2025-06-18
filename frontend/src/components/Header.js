@@ -14,6 +14,9 @@ const Header = () => {
           <Nav.Item>
             <Nav.Link href="/asteroids" className="nav-link-custom">Asteroids</Nav.Link>
           </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="" className="nav-link-custom">Asteroids Chart</Nav.Link>
+          </Nav.Item>
         </Nav>
       </Container>
     </div>
