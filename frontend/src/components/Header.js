@@ -15,7 +15,7 @@ const Header = () => {
             <Nav.Link href="/asteroids" className="nav-link-custom">Asteroids</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="" className="nav-link-custom">Asteroids Chart</Nav.Link>
+            <Nav.Link href="/charts" className="nav-link-custom">Asteroids Chart</Nav.Link>
           </Nav.Item>
         </Nav>
       </Container>
