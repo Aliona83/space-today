@@ -17,7 +17,9 @@ const AsteroidsCharts = () => {
       setLoading(true);
       const formattedDate = date.toISOString().split('T')[0];
       try {
-        const res = await fetch(`https://space-today-backend.onrender.com/api/asteroids?date=${formattedDate}`);
+       const res = await fetch(`https://space-today.onrender.com/api/asteroids?date=${formattedDate}`);
+
+
 
         const data = await res.json();
         setAsteroids(data);
