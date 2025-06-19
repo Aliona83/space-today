@@ -14,12 +14,8 @@ const allowedOrigins = [
   'https://space-today.vercel.app',
 ];
 
-app.use(cors({
-  origin: [
-    'https://space-today.vercel.app',
-    'https://space-today-git-main-alionas-projects-a602d264.vercel.app'
-  ]
-}));
+app.use(cors());
+
 
 app.use(express.json());
 
