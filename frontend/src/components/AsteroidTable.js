@@ -16,7 +16,8 @@ const AsteroidTable = () => {
       const formattedDate = date.toISOString().split('T')[0];
 
       try {
-        const res = await fetch(`http://localhost:5000/api/asteroids?date=${formattedDate}`);
+        const res = await fetch(`https://space-today.onrender.com/api/asteroids?date=${formattedDate}`);
+
         const data = await res.json();
         setAsteroids(data);
       } catch (err) {

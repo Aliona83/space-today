@@ -10,7 +10,8 @@ const ApodViewer = () => {
 
   useEffect(() => {
     const formattedDate = date.toISOString().split('T')[0];
-    fetch(`http://localhost:5000/api/apod?date=${formattedDate}`)
+   fetch(`https://space-today.onrender.com/api/apod?date=${formattedDate}`)
+
       .then(res => res.json())
       .then(data => setApod(data))
       .catch(err => console.error('Error fetching APOD:', err));
