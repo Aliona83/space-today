@@ -6,9 +6,24 @@ require('dotenv').config();
 const apodRoute = require('./routes/apod');
 const neowsRoute = require('./routes/neows');
 
-const app = express(); 
+const app = express();
 
-app.use(cors());
+// ✅ Allow both local dev and Vercel frontend
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://space-today.vercel.app',
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 app.use(express.json());
 
 // Routes
@@ -16,7 +31,4 @@ app.use('/api/apod', apodRoute);
 app.use('/api/asteroids', neowsRoute);
 
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
