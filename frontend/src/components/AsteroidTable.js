@@ -8,26 +8,28 @@ const AsteroidTable = () => {
   const [date, setDate] = useState(new Date());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+useEffect(() => {
+  const fetchAsteroids = async () => {
+    setLoading(true);
+    setError(null);
+    const formattedDate = date.toISOString().split('T')[0];
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
-  useEffect(() => {
-    const fetchAsteroids = async () => {
-      setLoading(true);
-      setError(null);
-      const formattedDate = date.toISOString().split('T')[0];
+    try {
+      const res = await fetch(`${API_BASE}/api/asteroids?date=${formattedDate}`);
+      const data = await res.json();
+      setAsteroids(data);
+    } catch (err) {
+      console.error('Fetch error:', err);
+      setError('Failed to fetch asteroid data.');
+    }
+    setLoading(false);
+  };
 
-      try {
-        const res = await fetch(`https://space-today.onrender.com/api/asteroids?date=${formattedDate}`);
+  fetchAsteroids();
+}, [date]);
 
-        const data = await res.json();
-        setAsteroids(data);
-      } catch (err) {
-        setError('Failed to fetch asteroid data.');
-      }
-      setLoading(false);
-    };
 
-    fetchAsteroids();
-  }, [date]);
 
   return (
     <div className="asteroid-table-container">

@@ -13,25 +13,26 @@ const AsteroidsCharts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchAsteroids = async () => {
-      setLoading(true);
-      const formattedDate = date.toISOString().split('T')[0];
-      try {
-       const res = await fetch(`https://space-today.onrender.com/api/asteroids?date=${formattedDate}`);
+  const fetchAsteroids = async () => {
+    setLoading(true);
+    const formattedDate = date.toISOString().split('T')[0];
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+    try {
+      const res = await fetch(`${API_BASE}/api/asteroids?date=${formattedDate}`);
+      const data = await res.json();
+      setAsteroids(data);
+    } catch (err) {
+      console.error('Failed to load asteroid data:', err);
+      setAsteroids([]);
+    }
+    setLoading(false);
+  };
+
+  fetchAsteroids();
+}, [date]);
 
 
-
-        const data = await res.json();
-        setAsteroids(data);
-      } catch (err) {
-        console.error('Failed to load asteroid data:', err);
-        setAsteroids([]);
-      }
-      setLoading(false);
-    };
-
-    fetchAsteroids();
-  }, [date]);
 
   const chartData = asteroids.map((asteroid) => ({
     name: asteroid.name,
