@@ -113,4 +113,49 @@ You can find the full project here:
 
 ### Deploymnet
 
+#### Deployment
+
+---
+
+### 🌐 Frontend – Vercel
+
+The frontend is deployed on [Vercel](https://vercel.com).
+
+1. Connect your GitHub repository to Vercel.
+2. Set the **project root** to `frontend/`.
+3. Add the following **environment variables** in your Vercel project settings:
+
+| Variable                  | Value                               |
+|---------------------------|-------------------------------------|
+| `REACT_APP_API_BASE_URL` | `https://space-today.onrender.com` |
+| `REACT_APP_NASA_API_KEY` | `your-nasa-api-key-here`           |
+
+> ⚠️ Make sure to **re-deploy** after setting environment variables.
+
+---
+
+### 🛠 Backend – Render
+
+The backend is deployed as a **Web Service** on [Render](https://render.com).
+
+#### Steps to Deploy:
+
+1. Create a **new Web Service**.
+2. Connect your GitHub repository.
+3. Set the **root directory** to `backend/`.
+4. Set the **Start Command** to:
+
+
 ### Screenshot
+
+#### Home Page
+
+![Apod View](./screenshots/AstronomyOfTheDay.png)
+
+#### Asteroid Table 
+
+![Asteroids Table](./screenshots/AsteroidsTable.png)
+
+#### Asteroids Charts
+
+![Asteroids Chars](./screenshots/Charts.png)
