@@ -14,7 +14,9 @@ const allowedOrigins = [
   'https://space-today.vercel.app',
 ];
 
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+}));
 
 
 app.use(express.json());
